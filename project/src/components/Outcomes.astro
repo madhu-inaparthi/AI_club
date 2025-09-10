@@ -1,0 +1,578 @@
+---
+const expectedOutcomes = [
+	{
+		icon: "🎯",
+		title: "Technical Proficiency",
+		description: "Master AI tools and prompt engineering techniques",
+		metrics: ["90%+ tool proficiency", "50+ prompts created", "Advanced techniques mastered"],
+		color: "blue"
+	},
+	{
+		icon: "💼",
+		title: "Professional Portfolio",
+		description: "Build impressive projects and showcase expertise",
+		metrics: ["6 major projects", "Personal AI portfolio", "GitHub repositories"],
+		color: "purple"
+	},
+	{
+		icon: "🤝",
+		title: "Network & Community",
+		description: "Connect with peers and industry professionals",
+		metrics: ["50+ peer connections", "Industry mentors", "Alumni network"],
+		color: "pink"
+	},
+	{
+		icon: "🚀",
+		title: "Career Readiness",
+		description: "Prepare for AI-focused career opportunities",
+		metrics: ["Industry certifications", "Internship opportunities", "Job placement rate"],
+		color: "blue"
+	},
+	{
+		icon: "💡",
+		title: "Innovation Skills",
+		description: "Develop creative problem-solving abilities",
+		metrics: ["Creative solutions", "Innovation projects", "Research contributions"],
+		color: "purple"
+	},
+	{
+		icon: "🏆",
+		title: "Recognition & Awards",
+		description: "Achieve recognition for outstanding work",
+		metrics: ["Competition wins", "Academic recognition", "Industry awards"],
+		color: "pink"
+	}
+];
+
+const successMetrics = [
+	{ label: "Members Actively Participating", value: "85%", icon: "👥" },
+	{ label: "Project Completion Rate", value: "92%", icon: "✅" },
+	{ label: "Career Placement Success", value: "78%", icon: "💼" },
+	{ label: "Industry Partnership Growth", value: "150%", icon: "🤝" }
+];
+
+const longTermImpact = [
+	{
+		timeframe: "6 Months",
+		achievements: ["Core AI skills mastered", "First projects completed", "Professional network established"]
+	},
+	{
+		timeframe: "1 Year",
+		achievements: ["Advanced portfolio built", "Industry connections made", "Leadership roles taken"]
+	},
+	{
+		timeframe: "2-3 Years",
+		achievements: ["Career placement achieved", "Mentoring new members", "Industry recognition gained"]
+	}
+];
+---
+
+<section id="outcomes" class="outcomes fade-in">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">Expected Outcomes</h2>
+			<p class="section-subtitle">Transformative results from our AI Club experience</p>
+		</div>
+		
+		<div class="outcomes-grid">
+			{expectedOutcomes.map((outcome, index) => (
+				<div class={`outcome-card card-hover ${outcome.color}`} style={`animation-delay: ${index * 0.1}s`}>
+					<div class="outcome-header">
+						<div class="outcome-icon">{outcome.icon}</div>
+						<h3 class="outcome-title">{outcome.title}</h3>
+					</div>
+					<p class="outcome-description">{outcome.description}</p>
+					<div class="outcome-metrics">
+						<h4>Key Metrics:</h4>
+						<ul class="metrics-list">
+							{outcome.metrics.map((metric) => (
+								<li class="metric-item">{metric}</li>
+							))}
+						</ul>
+					</div>
+					<div class="progress-ring">
+						<svg class="progress-svg" width="60" height="60">
+							<circle cx="30" cy="30" r="25" stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none"/>
+							<circle cx="30" cy="30" r="25" stroke="url(#gradient)" stroke-width="4" fill="none" 
+									stroke-dasharray="157" stroke-dashoffset="47" stroke-linecap="round"
+									class="progress-circle"/>
+							<defs>
+								<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+									<stop offset="0%" style="stop-color:var(--primary-blue);stop-opacity:1" />
+									<stop offset="100%" style="stop-color:var(--primary-purple);stop-opacity:1" />
+								</linearGradient>
+							</defs>
+						</svg>
+						<div class="progress-text">70%</div>
+					</div>
+				</div>
+			))}
+		</div>
+		
+		<div class="success-metrics">
+			<h3 class="metrics-title">Success Metrics</h3>
+			<div class="metrics-grid">
+				{successMetrics.map((metric) => (
+					<div class="metric-card card-hover">
+						<div class="metric-icon">{metric.icon}</div>
+						<div class="metric-value gradient-text">{metric.value}</div>
+						<div class="metric-label">{metric.label}</div>
+						<div class="metric-progress">
+							<div class="metric-bar"></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+		
+		<div class="timeline-impact">
+			<h3 class="timeline-title">Long-term Impact Timeline</h3>
+			<div class="impact-timeline">
+				{longTermImpact.map((phase, index) => (
+					<div class="timeline-phase card-hover">
+						<div class="phase-marker">
+							<div class="phase-number">{index + 1}</div>
+						</div>
+						<div class="phase-content">
+							<h4 class="phase-timeframe">{phase.timeframe}</h4>
+							<ul class="phase-achievements">
+								{phase.achievements.map((achievement) => (
+									<li>{achievement}</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+		
+		<div class="impact-statement">
+			<div class="statement-content">
+				<h3 class="statement-title">Our Commitment to Excellence</h3>
+				<p class="statement-text">
+					The AI Club is more than just a learning community—it's a launchpad for future innovators. 
+					Our members don't just learn about AI; they become AI pioneers, ready to shape the future 
+					of technology and drive meaningful change in their chosen fields.
+				</p>
+				<div class="commitment-badges">
+					<div class="badge">🎯 Excellence</div>
+					<div class="badge">🚀 Innovation</div>
+					<div class="badge">🤝 Community</div>
+					<div class="badge">💡 Impact</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.outcomes {
+		margin-left: 280px;
+		padding: 5rem 2rem;
+		background: radial-gradient(ellipse at center bottom, rgba(236, 72, 153, 0.1) 0%, var(--bg-dark) 70%);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
+
+	.outcomes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-bottom: 5rem;
+	}
+
+	.outcome-card {
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(20px);
+		border-radius: 16px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(30px);
+		animation: slideInUp 0.8s ease forwards;
+	}
+
+	.outcome-card.blue {
+		border-color: rgba(0, 212, 255, 0.3);
+		background: rgba(0, 212, 255, 0.03);
+	}
+
+	.outcome-card.purple {
+		border-color: rgba(139, 92, 246, 0.3);
+		background: rgba(139, 92, 246, 0.03);
+	}
+
+	.outcome-card.pink {
+		border-color: rgba(236, 72, 153, 0.3);
+		background: rgba(236, 72, 153, 0.03);
+	}
+
+	.outcome-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.outcome-icon {
+		font-size: 2.5rem;
+		filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
+	}
+
+	.outcome-title {
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+
+	.outcome-description {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 2rem;
+	}
+
+	.outcome-metrics {
+		margin-bottom: 2rem;
+	}
+
+	.outcome-metrics h4 {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--text-accent);
+	}
+
+	.metrics-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.metric-item {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(0, 212, 255, 0.2);
+		border-radius: 6px;
+		padding: 0.5rem 0.8rem;
+		margin: 0.5rem 0;
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+	}
+
+	.progress-ring {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		width: 60px;
+		height: 60px;
+	}
+
+	.progress-svg {
+		transform: rotate(-90deg);
+	}
+
+	.progress-circle {
+		animation: progressAnimation 2s ease-out forwards;
+		animation-delay: 0.5s;
+	}
+
+	.progress-text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: var(--primary-blue);
+	}
+
+	.success-metrics {
+		margin-bottom: 5rem;
+		text-align: center;
+	}
+
+	.metrics-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: 3rem;
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.metric-card {
+		background: rgba(255, 255, 255, 0.03);
+		backdrop-filter: blur(15px);
+		border-radius: 12px;
+		padding: 2rem;
+		text-align: center;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.metric-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.metric-value {
+		font-size: 3rem;
+		font-weight: 900;
+		margin-bottom: 0.5rem;
+		display: block;
+	}
+
+	.metric-label {
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.metric-progress {
+		height: 4px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	.metric-bar {
+		height: 100%;
+		background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+		width: 0;
+		border-radius: 2px;
+		animation: fillBar 2s ease-out forwards;
+		animation-delay: 1s;
+	}
+
+	.timeline-impact {
+		margin-bottom: 4rem;
+	}
+
+	.timeline-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: var(--text-primary);
+	}
+
+	.impact-timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.timeline-phase {
+		display: flex;
+		align-items: flex-start;
+		gap: 2rem;
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(15px);
+		border-radius: 16px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.phase-marker {
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.phase-number {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: white;
+	}
+
+	.phase-content {
+		flex: 1;
+	}
+
+	.phase-timeframe {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--text-accent);
+	}
+
+	.phase-achievements {
+		list-style: none;
+		padding: 0;
+	}
+
+	.phase-achievements li {
+		color: var(--text-secondary);
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.phase-achievements li::before {
+		content: "✦";
+		position: absolute;
+		left: 0;
+		color: var(--primary-blue);
+		font-weight: bold;
+	}
+
+	.impact-statement {
+		text-align: center;
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+		border-radius: 20px;
+		padding: 4rem 2rem;
+		border: 1px solid rgba(139, 92, 246, 0.2);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.impact-statement::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+		animation: rotate 30s linear infinite;
+	}
+
+	.statement-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.statement-title {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 2rem;
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.statement-text {
+		font-size: 1.2rem;
+		line-height: 1.7;
+		color: var(--text-secondary);
+		margin-bottom: 3rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.commitment-badges {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.badge {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 25px;
+		padding: 0.8rem 1.5rem;
+		color: var(--text-primary);
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+
+	@keyframes slideInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes progressAnimation {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	@keyframes fillBar {
+		to {
+			width: 85%;
+		}
+	}
+
+	@keyframes rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@media (max-width: 768px) {
+		.outcomes {
+			margin-left: 0;
+			padding: 3rem 1rem;
+		}
+		
+		.outcomes-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		
+		.metrics-grid {
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		}
+		
+		.timeline-phase {
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.commitment-badges {
+			gap: 0.8rem;
+		}
+		
+		.badge {
+			padding: 0.6rem 1.2rem;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+		}
+		
+		.statement-title {
+			font-size: 2rem;
+		}
+	}
+</style>

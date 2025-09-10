@@ -1,0 +1,217 @@
+---
+---
+
+<section id="vision" class="vision-mission fade-in">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">Vision & Mission</h2>
+			<p class="section-subtitle">Shaping the future of AI education and innovation</p>
+		</div>
+		
+		<div class="vm-grid">
+			<div class="vm-card card-hover">
+				<div class="card-icon">🎯</div>
+				<h3 class="card-title">Our Vision</h3>
+				<p class="card-content">
+					To create a vibrant community of AI enthusiasts who lead innovation, 
+					bridge the gap between theoretical knowledge and practical application, 
+					and contribute to solving real-world problems through artificial intelligence.
+				</p>
+				<div class="card-glow"></div>
+			</div>
+			
+			<div class="vm-card card-hover">
+				<div class="card-icon">🚀</div>
+				<h3 class="card-title">Our Mission</h3>
+				<p class="card-content">
+					Empower students with hands-on AI skills, foster creativity through prompt engineering, 
+					build practical solutions using cutting-edge tools, and cultivate a collaborative 
+					learning environment that prepares students for the AI-driven future.
+				</p>
+				<div class="card-glow"></div>
+			</div>
+		</div>
+		
+		<div class="values-section">
+			<h3 class="values-title">Core Values</h3>
+			<div class="values-grid">
+				<div class="value-item">
+					<div class="value-icon">💡</div>
+					<h4>Innovation</h4>
+					<p>Pushing boundaries and exploring new possibilities</p>
+				</div>
+				<div class="value-item">
+					<div class="value-icon">🤝</div>
+					<h4>Collaboration</h4>
+					<p>Learning together and sharing knowledge</p>
+				</div>
+				<div class="value-item">
+					<div class="value-icon">🎯</div>
+					<h4>Excellence</h4>
+					<p>Striving for the highest quality in everything we do</p>
+				</div>
+				<div class="value-item">
+					<div class="value-icon">🌟</div>
+					<h4>Impact</h4>
+					<p>Creating meaningful solutions for real-world problems</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.vision-mission {
+		margin-left: 280px;
+		padding: 5rem 2rem;
+		background: linear-gradient(135deg, rgba(26, 26, 46, 0.3) 0%, rgba(139, 92, 246, 0.1) 100%);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
+
+	.vm-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+		gap: 3rem;
+		margin-bottom: 5rem;
+	}
+
+	.vm-card {
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(20px);
+		border-radius: 16px;
+		padding: 3rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.card-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		display: block;
+	}
+
+	.card-title {
+		font-size: 1.8rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		color: var(--text-accent);
+	}
+
+	.card-content {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: var(--text-secondary);
+	}
+
+	.card-glow {
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.vm-card:hover .card-glow {
+		opacity: 1;
+	}
+
+	.values-section {
+		text-align: center;
+	}
+
+	.values-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: 3rem;
+		background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.value-item {
+		background: rgba(255, 255, 255, 0.03);
+		backdrop-filter: blur(10px);
+		border-radius: 12px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.3s ease;
+	}
+
+	.value-item:hover {
+		transform: translateY(-5px);
+		background: rgba(255, 255, 255, 0.05);
+		border-color: rgba(0, 212, 255, 0.3);
+	}
+
+	.value-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.value-item h4 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
+	}
+
+	.value-item p {
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+	}
+
+	@media (max-width: 768px) {
+		.vision-mission {
+			margin-left: 0;
+			padding: 3rem 1rem;
+		}
+		
+		.vm-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+		
+		.vm-card {
+			padding: 2rem;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+		}
+		
+		.values-grid {
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+		}
+	}
+</style>

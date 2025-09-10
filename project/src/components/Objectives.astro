@@ -1,0 +1,267 @@
+---
+const objectives = [
+	{
+		icon: "🧠",
+		title: "AI Fundamentals",
+		description: "Master core AI concepts, machine learning basics, and understand how artificial intelligence transforms industries."
+	},
+	{
+		icon: "✨",
+		title: "Prompt Engineering",
+		description: "Develop expertise in crafting effective prompts for AI models, optimizing outputs, and advanced prompt techniques."
+	},
+	{
+		icon: "🛠️",
+		title: "AI Tools Mastery",
+		description: "Gain hands-on experience with ChatGPT, Claude, Midjourney, and other cutting-edge AI applications."
+	},
+	{
+		icon: "🚀",
+		title: "Real-World Projects",
+		description: "Build practical solutions, create AI-powered applications, and develop a portfolio of impressive projects."
+	},
+	{
+		icon: "🤝",
+		title: "Collaborative Learning",
+		description: "Work in teams, share knowledge, participate in hackathons, and learn from peer experiences."
+	},
+	{
+		icon: "💼",
+		title: "Career Readiness",
+		description: "Prepare for AI-related careers, understand industry trends, and develop professional AI skills."
+	}
+];
+---
+
+<section id="objectives" class="objectives fade-in">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">Club Objectives</h2>
+			<p class="section-subtitle">What you'll achieve in our AI Club journey</p>
+		</div>
+		
+		<div class="objectives-grid">
+			{objectives.map((objective, index) => (
+				<div class="objective-card card-hover" style={`animation-delay: ${index * 0.1}s`}>
+					<div class="card-number">{String(index + 1).padStart(2, '0')}</div>
+					<div class="card-icon">{objective.icon}</div>
+					<h3 class="card-title">{objective.title}</h3>
+					<p class="card-description">{objective.description}</p>
+					<div class="card-footer">
+						<div class="progress-indicator">
+							<div class="progress-bar"></div>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+		
+		<div class="cta-section">
+			<div class="cta-content">
+				<h3 class="cta-title">Ready to Transform Your Future with AI?</h3>
+				<p class="cta-description">Join our community of innovators and become an AI pioneer</p>
+				<a href="#curriculum" class="glow-button">
+					Explore Curriculum
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.objectives {
+		margin-left: 280px;
+		padding: 5rem 2rem;
+		background: var(--bg-dark);
+		position: relative;
+	}
+
+	.objectives::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(ellipse at center top, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
+
+	.objectives-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-bottom: 5rem;
+	}
+
+	.objective-card {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+		backdrop-filter: blur(20px);
+		border-radius: 16px;
+		padding: 2.5rem;
+		position: relative;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(30px);
+		animation: slideInUp 0.8s ease forwards;
+	}
+
+	.card-number {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		font-size: 1rem;
+		font-weight: 700;
+		color: rgba(0, 212, 255, 0.4);
+		font-family: monospace;
+	}
+
+	.card-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		display: block;
+		filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+	}
+
+	.card-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+	}
+
+	.card-description {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+
+	.card-footer {
+		margin-top: auto;
+	}
+
+	.progress-indicator {
+		height: 3px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 2px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.progress-bar {
+		height: 100%;
+		background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+		width: 0;
+		border-radius: 2px;
+		transition: width 0.8s ease;
+	}
+
+	.objective-card:hover .progress-bar {
+		width: 100%;
+	}
+
+	.cta-section {
+		text-align: center;
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+		border-radius: 20px;
+		padding: 4rem 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-section::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+		animation: rotate 20s linear infinite;
+	}
+
+	.cta-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.cta-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.cta-description {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+
+	@keyframes slideInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@media (max-width: 768px) {
+		.objectives {
+			margin-left: 0;
+			padding: 3rem 1rem;
+		}
+		
+		.objectives-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		
+		.objective-card {
+			padding: 2rem;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+		}
+		
+		.cta-section {
+			padding: 3rem 1.5rem;
+		}
+		
+		.cta-title {
+			font-size: 1.8rem;
+		}
+	}
+</style>

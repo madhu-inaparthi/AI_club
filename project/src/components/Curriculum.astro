@@ -1,0 +1,502 @@
+---
+const curriculumData = [
+	{
+		month: 1,
+		title: "AI Foundations & Introduction",
+		topics: [
+			"Introduction to AI and Machine Learning concepts",
+			"History and evolution of artificial intelligence",
+			"Understanding different types of AI systems",
+			"Basic terminology and core principles",
+			"AI ethics and responsible AI practices"
+		],
+		projects: ["AI Timeline Research", "Ethics Case Study"],
+		skills: ["Critical Thinking", "Research Skills", "AI Awareness"]
+	},
+	{
+		month: 2,
+		title: "Prompt Engineering Fundamentals",
+		topics: [
+			"What is prompt engineering and why it matters",
+			"Basic prompt structure and components",
+			"Writing effective prompts for different use cases",
+			"Common prompt patterns and templates",
+			"Iterating and improving prompt quality"
+		],
+		projects: ["Prompt Library Creation", "A/B Testing Prompts"],
+		skills: ["Communication", "Problem-Solving", "Optimization"]
+	},
+	{
+		month: 3,
+		title: "AI Tools & Platforms Mastery",
+		topics: [
+			"ChatGPT, Claude, and other language models",
+			"Image generation tools (Midjourney, DALL-E)",
+			"Code generation and assistance tools",
+			"AI-powered productivity applications",
+			"Comparing and choosing the right tools"
+		],
+		projects: ["Tool Comparison Matrix", "Multi-Modal Project"],
+		skills: ["Tool Proficiency", "Evaluation Skills", "Productivity"]
+	},
+	{
+		month: 4,
+		title: "Advanced Prompting Techniques",
+		topics: [
+			"Chain-of-thought prompting strategies",
+			"Few-shot and zero-shot learning approaches",
+			"Role-playing and persona-based prompts",
+			"Complex reasoning and problem decomposition",
+			"Prompt chaining and workflow automation"
+		],
+		projects: ["Advanced Chatbot", "Automated Workflow"],
+		skills: ["Advanced Reasoning", "Automation", "Strategic Thinking"]
+	},
+	{
+		month: 5,
+		title: "Real-World Applications & Projects",
+		topics: [
+			"Building AI-powered applications",
+			"Integrating AI into existing workflows",
+			"Creating content with AI assistance",
+			"Data analysis and insights generation",
+			"Business applications and use cases"
+		],
+		projects: ["Capstone Project Planning", "Industry Case Study"],
+		skills: ["Application Development", "Integration", "Business Acumen"]
+	},
+	{
+		month: 6,
+		title: "Capstone Projects & Future Trends",
+		topics: [
+			"Project presentation and peer review",
+			"Future trends in AI and emerging technologies",
+			"Career paths in AI and related fields",
+			"Building a professional AI portfolio",
+			"Continuing education and resources"
+		],
+		projects: ["Capstone Presentation", "Portfolio Website"],
+		skills: ["Presentation", "Professional Development", "Future Planning"]
+	}
+];
+---
+
+<section id="curriculum" class="curriculum fade-in">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">6-Month Curriculum</h2>
+			<p class="section-subtitle">A comprehensive journey from AI basics to advanced applications</p>
+		</div>
+		
+		<div class="timeline-container">
+			<div class="timeline-line"></div>
+			{curriculumData.map((month, index) => (
+				<div class="timeline-item" data-month={month.month}>
+					<div class="timeline-marker">
+						<div class="marker-inner">{month.month}</div>
+					</div>
+					<div class="timeline-content card-hover">
+						<div class="month-header">
+							<h3 class="month-title">Month {month.month}</h3>
+							<h4 class="month-topic">{month.title}</h4>
+						</div>
+						
+						<div class="curriculum-sections">
+							<div class="curriculum-section">
+								<h5 class="section-title-small">Learning Topics</h5>
+								<ul class="topics-list">
+									{month.topics.map((topic) => (
+										<li>{topic}</li>
+									))}
+								</ul>
+							</div>
+							
+							<div class="curriculum-section">
+								<h5 class="section-title-small">Projects</h5>
+								<div class="projects-list">
+									{month.projects.map((project) => (
+										<div class="project-tag">{project}</div>
+									))}
+								</div>
+							</div>
+							
+							<div class="curriculum-section">
+								<h5 class="section-title-small">Skills Developed</h5>
+								<div class="skills-list">
+									{month.skills.map((skill) => (
+										<div class="skill-badge">{skill}</div>
+									))}
+								</div>
+							</div>
+						</div>
+						
+						<div class="expand-toggle">
+							<button class="expand-btn" onclick="const details = this.nextElementSibling; const text = this.querySelector('.expand-text'); const icon = this.querySelector('.expand-icon'); if(details.style.display === 'none' || !details.style.display) { details.style.display = 'block'; text.textContent = 'Hide Details'; icon.textContent = '▲'; } else { details.style.display = 'none'; text.textContent = 'Show Details'; icon.textContent = '▼'; }">
+								<span class="expand-text">Show Details</span>
+								<span class="expand-icon">▼</span>
+							</button>
+							<div class="details-content" style="display:none; margin-top:1rem;">
+								<h5>Expanded Details</h5>
+								<ul>
+									<li><strong>Example Activities:</strong> {month.month === 1 ? "AI timeline creation, group discussion on ethics, research presentations" : month.month === 2 ? "Prompt writing workshops, peer review sessions, prompt optimization challenges" : month.month === 3 ? "Hands-on with AI tools, tool comparison debates, multi-modal project showcase" : month.month === 4 ? "Advanced chatbot building, workflow automation exercises, strategic reasoning games" : month.month === 5 ? "Capstone project planning, real-world case studies, business application demos" : "Capstone presentations, portfolio building workshops, career guidance panels"}</li>
+									<li><strong>Resources Used:</strong> {month.month === 1 ? "Introductory AI books, online articles, ethics case studies" : month.month === 2 ? "Prompt engineering guides, online prompt libraries, collaborative docs" : month.month === 3 ? "Access to ChatGPT, Claude, Midjourney, DALL-E, productivity apps" : month.month === 4 ? "Advanced prompt guides, automation tools, workflow templates" : month.month === 5 ? "Industry reports, business case studies, integration tools" : "Portfolio website builders, career resources, AI trend reports"}</li>
+									<li><strong>Assessment Methods:</strong> {month.month === 1 ? "Quizzes, research reports, group presentations" : month.month === 2 ? "Prompt effectiveness scoring, peer feedback, optimization logs" : month.month === 3 ? "Tool proficiency tests, project evaluations, comparison matrices" : month.month === 4 ? "Chatbot performance, workflow automation demos, reasoning challenges" : month.month === 5 ? "Project planning reviews, case study analysis, application demos" : "Presentation rubrics, portfolio review, career planning assignments"}</li>
+									<li><strong>Expanded Description:</strong> {month.month === 1 ? "Kickstart your AI journey by understanding the basics, exploring the history, and discussing ethical implications. Activities include creating an AI timeline and analyzing real-world ethical dilemmas." : month.month === 2 ? "Dive deep into prompt engineering, learning how to craft, test, and optimize prompts for various AI models. Participate in workshops and collaborative prompt writing sessions." : month.month === 3 ? "Master popular AI tools and platforms through hands-on activities, debates, and multi-modal projects. Learn to choose the right tool for different tasks." : month.month === 4 ? "Advance your prompting skills with complex strategies, automation, and reasoning games. Build sophisticated chatbots and automate workflows." : month.month === 5 ? "Apply your knowledge to real-world scenarios, plan your capstone project, and explore business applications of AI. Analyze industry case studies and integrate AI into workflows." : "Showcase your capstone project, build a professional portfolio, and prepare for future careers in AI. Participate in career guidance panels and portfolio workshops."}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+		
+		<div class="curriculum-summary">
+			<h3 class="summary-title">Learning Outcomes</h3>
+			<div class="outcomes-grid">
+				<div class="outcome-card card-hover">
+					<div class="outcome-icon">🎯</div>
+					<h4>Practical Skills</h4>
+					<p>Master prompt engineering, AI tool usage, and application development</p>
+				</div>
+				<div class="outcome-card card-hover">
+					<div class="outcome-icon">💼</div>
+					<h4>Professional Portfolio</h4>
+					<p>Build a comprehensive portfolio showcasing your AI projects and expertise</p>
+				</div>
+				<div class="outcome-card card-hover">
+					<div class="outcome-icon">🚀</div>
+					<h4>Industry Readiness</h4>
+					<p>Prepare for AI-related careers with hands-on experience and real-world projects</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.curriculum {
+		margin-left: 280px;
+		padding: 5rem 2rem;
+		background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, var(--bg-dark) 70%);
+	}
+
+	.container {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
+
+	.timeline-container {
+		position: relative;
+		margin-bottom: 5rem;
+	}
+
+	.timeline-line {
+		position: absolute;
+		left: 2rem;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background: linear-gradient(180deg, var(--primary-blue), var(--primary-purple), var(--primary-pink));
+		z-index: 1;
+	}
+
+	.timeline-item {
+		position: relative;
+		margin-bottom: 3rem;
+		padding-left: 5rem;
+	}
+
+	.timeline-marker {
+		position: absolute;
+		left: 1rem;
+		top: 1.5rem;
+		width: 2rem;
+		height: 2rem;
+		background: var(--bg-dark);
+		border: 3px solid var(--primary-blue);
+		border-radius: 50%;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.marker-inner {
+		color: var(--primary-blue);
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+
+	.timeline-content {
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(20px);
+		border-radius: 16px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.month-header {
+		margin-bottom: 2rem;
+	}
+
+	.month-title {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: var(--text-accent);
+		margin-bottom: 0.5rem;
+	}
+
+	.month-topic {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+
+	.curriculum-sections {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr;
+		gap: 2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.curriculum-section {
+		min-height: 120px;
+	}
+
+	.section-title-small {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+		border-bottom: 2px solid var(--primary-purple);
+		padding-bottom: 0.5rem;
+	}
+
+	.topics-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.topics-list li {
+		padding: 0.4rem 0;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		line-height: 1.5;
+		position: relative;
+		padding-left: 1.2rem;
+	}
+
+	.topics-list li::before {
+		content: "▸";
+		position: absolute;
+		left: 0;
+		color: var(--primary-blue);
+		font-weight: bold;
+	}
+
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.project-tag {
+		background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+		border: 1px solid rgba(0, 212, 255, 0.3);
+		border-radius: 8px;
+		padding: 0.5rem 0.8rem;
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-align: center;
+		color: var(--text-primary);
+	}
+
+	.skills-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.skill-badge {
+		background: rgba(236, 72, 153, 0.15);
+		border: 1px solid rgba(236, 72, 153, 0.3);
+		border-radius: 6px;
+		padding: 0.4rem 0.6rem;
+		font-size: 0.8rem;
+		font-weight: 500;
+		text-align: center;
+		color: var(--primary-pink);
+	}
+
+	.expand-toggle {
+		text-align: center;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 1rem;
+	}
+
+	.expand-btn {
+		background: none;
+		border: 1px solid rgba(0, 212, 255, 0.3);
+		color: var(--text-accent);
+		border-radius: 6px;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-size: 0.9rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0 auto;
+	}
+
+	.expand-btn:hover {
+		background: rgba(0, 212, 255, 0.1);
+		border-color: var(--primary-blue);
+	}
+
+	.expand-icon {
+		transition: transform 0.3s ease;
+	}
+
+	.timeline-content.expanded .expand-icon {
+		transform: rotate(180deg);
+	}
+
+	.curriculum-summary {
+		text-align: center;
+	}
+
+	.summary-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: 3rem;
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.outcomes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.outcome-card {
+		background: rgba(255, 255, 255, 0.03);
+		backdrop-filter: blur(15px);
+		border-radius: 12px;
+		padding: 2.5rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		text-align: center;
+	}
+
+	.outcome-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
+	}
+
+	.outcome-card h4 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+	}
+
+	.outcome-card p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.curriculum {
+			margin-left: 0;
+			padding: 3rem 1rem;
+		}
+		
+		.timeline-item {
+			padding-left: 4rem;
+		}
+		
+		.curriculum-sections {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+		}
+		
+		.outcomes-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+		
+		.timeline-line {
+			left: 1.5rem;
+		}
+		
+		.timeline-marker {
+			left: 0.5rem;
+		}
+	}
+</style>
+
+<script>
+	// Expandable curriculum sections
+	document.querySelectorAll('.expand-btn').forEach(btn => {
+		btn.addEventListener('click', function() {
+			const content = this.closest('.timeline-content');
+			const text = this.querySelector('.expand-text');
+			
+			content.classList.toggle('expanded');
+			
+			if (content.classList.contains('expanded')) {
+				text.textContent = 'Hide Details';
+			} else {
+				text.textContent = 'Show Details';
+			}
+		});
+	});
+
+	// Timeline animation on scroll
+	const observerOptions = {
+		threshold: 0.3,
+		rootMargin: '0px 0px -100px 0px'
+	};
+
+	const timelineObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.style.opacity = '1';
+				entry.target.style.transform = 'translateX(0)';
+			}
+		});
+	}, observerOptions);
+
+	document.querySelectorAll('.timeline-item').forEach((item, index) => {
+		item.style.opacity = '0';
+		item.style.transform = 'translateX(-30px)';
+		item.style.transition = `all 0.8s ease ${index * 0.1}s`;
+		timelineObserver.observe(item);
+	});
+</script>

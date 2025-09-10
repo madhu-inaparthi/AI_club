@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import MobileNav from '../components/MobileNav.astro';
+import Hero from '../components/Hero.astro';
+import VisionMission from '../components/VisionMission.astro';
+import Objectives from '../components/Objectives.astro';
+import Structure from '../components/Structure.astro';
+import Curriculum from '../components/Curriculum.astro';
+import Resources from '../components/Resources.astro';
+import Outcomes from '../components/Outcomes.astro';
+import Events from '../components/Events.astro';
+---
+
+<Layout title="AI Club | Empowering Students with AI & Prompting">
+	<main class="main-content">
+		<Sidebar />
+		<MobileNav />
+		
+		<div class="content-wrapper">
+			<Hero />
+			<VisionMission />
+			<Objectives />
+			<Structure />
+			<Curriculum />
+			<Resources />
+			<Outcomes />
+			<Events />
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.main-content {
+		display: flex;
+		min-height: 100vh;
+	}
+
+	.content-wrapper {
+		flex: 1;
+		position: relative;
+	}
+
+	@media (max-width: 768px) {
+		.main-content {
+			flex-direction: column;
+		}
+	}
+</style>

@@ -1,0 +1,196 @@
+---
+const navItems = [
+	{ href: "#home", label: "Overview", icon: "🏠" },
+	{ href: "#vision", label: "Vision & Mission", icon: "🎯" },
+	{ href: "#objectives", label: "Objectives", icon: "📋" },
+	
+	{ href: "#curriculum", label: "Curriculum", icon: "📚" },
+	{ href: "#resources", label: "Resources", icon: "🛠️" },
+	{ href: "#outcomes", label: "Outcomes", icon: "🏆" },
+	{ href: "#events", label: "Events", icon: "📅" }
+];
+---
+
+<aside class="sidebar">
+	<div class="sidebar-content">
+		<div class="logo">
+			<h2 class="gradient-text">AI Club</h2>
+			<p class="tagline">Empowering with AI</p>
+		</div>
+		
+		<nav class="nav">
+			{navItems.map(item => (
+				<a href={item.href} class="nav-item">
+					<span class="nav-icon">{item.icon}</span>
+					<span class="nav-label">{item.label}</span>
+				</a>
+			))}
+		</nav>
+
+		<div class="sidebar-footer">
+			<div class="search-box">
+				<input type="text" placeholder="Search..." id="searchInput" />
+				<span class="search-icon">🔍</span>
+			</div>
+		</div>
+	</div>
+</aside>
+
+<style>
+	.sidebar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 280px;
+		height: 100vh;
+		background: linear-gradient(180deg, var(--bg-dark-secondary) 0%, rgba(26, 26, 46, 0.95) 100%);
+		backdrop-filter: blur(20px);
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
+		z-index: 100;
+		overflow-y: auto;
+	}
+
+	.sidebar-content {
+		padding: 2rem 1.5rem;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo {
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.logo h2 {
+		font-size: 1.8rem;
+		font-weight: 800;
+		margin-bottom: 0.5rem;
+	}
+
+	.tagline {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		font-weight: 400;
+	}
+
+	.nav {
+		flex: 1;
+	}
+
+	.nav-item {
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		border-radius: 8px;
+		margin-bottom: 0.5rem;
+		transition: all 0.3s ease;
+		border-left: 3px solid transparent;
+	}
+
+	.nav-item:hover {
+		color: var(--text-primary);
+		background: rgba(255, 255, 255, 0.05);
+		border-left-color: var(--primary-purple);
+	}
+
+	.nav-icon {
+		margin-right: 0.75rem;
+		font-size: 1.2rem;
+	}
+
+	.nav-label {
+		font-weight: 500;
+	}
+
+	.search-box {
+		position: relative;
+		margin-top: 2rem;
+	}
+
+	.search-box input {
+		width: 100%;
+		padding: 0.75rem 2.5rem 0.75rem 1rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		color: var(--text-primary);
+		font-size: 0.9rem;
+	}
+
+	.search-box input:focus {
+		outline: none;
+		border-color: var(--border-glow);
+		box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+	}
+
+	.search-icon {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: var(--text-secondary);
+	}
+
+	@media (max-width: 768px) {
+		.sidebar {
+			transform: translateX(-100%);
+			transition: transform 0.3s ease;
+		}
+		
+		.sidebar.open {
+			transform: translateX(0);
+		}
+	}
+</style>
+
+<script>
+	// Active navigation highlighting
+	const updateActiveNav = () => {
+		const sections = document.querySelectorAll('section[id]');
+		const navItems = document.querySelectorAll('.nav-item');
+		
+		let current = '';
+		sections.forEach(section => {
+			const sectionTop = section.offsetTop;
+			const sectionHeight = section.clientHeight;
+			if (window.scrollY >= sectionTop - 100) {
+				current = section.getAttribute('id');
+			}
+		});
+
+		navItems.forEach(item => {
+			item.classList.remove('sidebar-active');
+			if (item.getAttribute('href') === `#${current}`) {
+				item.classList.add('sidebar-active');
+			}
+		});
+	};
+
+	window.addEventListener('scroll', updateActiveNav);
+	window.addEventListener('load', updateActiveNav);
+
+	// Search functionality
+	const searchInput = document.getElementById('searchInput');
+	const searchContent = () => {
+		const query = searchInput.value.toLowerCase();
+		const allText = document.querySelectorAll('h1, h2, h3, p, li');
+		
+		allText.forEach(element => {
+			const text = element.textContent.toLowerCase();
+			if (query && text.includes(query)) {
+				element.style.background = 'rgba(0, 212, 255, 0.2)';
+				element.style.borderRadius = '4px';
+			} else {
+				element.style.background = '';
+			}
+		});
+	};
+
+	if (searchInput) {
+		searchInput.addEventListener('input', searchContent);
+	}
+</script>
+</aside>

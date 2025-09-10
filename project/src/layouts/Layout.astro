@@ -1,0 +1,265 @@
+---
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = "AI Club | Empowering Students with AI & Prompting", description = "Join our AI Club to explore Artificial Intelligence through prompt engineering, AI tools, and real-world projects." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+		<script>
+			// Smooth scrolling for anchor links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute('href'));
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				});
+			});
+
+			// Intersection Observer for fade-in animations
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('animate-in');
+					}
+				});
+			}, observerOptions);
+
+			// Observe all sections
+			document.querySelectorAll('.fade-in').forEach(el => {
+				observer.observe(el);
+			});
+
+			// Neural network animation
+			const createNeuralNetwork = () => {
+				const canvas = document.getElementById('neural-bg');
+				if (!canvas) return;
+				
+				const ctx = canvas.getContext('2d');
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+				const particles = [];
+				const particleCount = 50;
+
+				class Particle {
+					constructor() {
+						this.x = Math.random() * canvas.width;
+						this.y = Math.random() * canvas.height;
+						this.vx = (Math.random() - 0.5) * 0.5;
+						this.vy = (Math.random() - 0.5) * 0.5;
+						this.size = Math.random() * 2 + 1;
+					}
+
+					update() {
+						this.x += this.vx;
+						this.y += this.vy;
+
+						if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+						if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+					}
+
+					draw() {
+						ctx.beginPath();
+						ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+						ctx.fillStyle = 'rgba(0, 212, 255, 0.6)';
+						ctx.fill();
+					}
+				}
+
+				// Initialize particles
+				for (let i = 0; i < particleCount; i++) {
+					particles.push(new Particle());
+				}
+
+				// Animation loop
+				const animate = () => {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					particles.forEach(particle => {
+						particle.update();
+						particle.draw();
+					});
+
+					// Draw connections
+					particles.forEach((particle, i) => {
+						particles.slice(i + 1).forEach(otherParticle => {
+							const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y);
+							if (distance < 150) {
+								ctx.beginPath();
+								ctx.moveTo(particle.x, particle.y);
+								ctx.lineTo(otherParticle.x, otherParticle.y);
+								ctx.strokeStyle = `rgba(139, 92, 246, ${0.3 * (1 - distance / 150)})`;
+								ctx.stroke();
+							}
+						});
+					});
+
+					requestAnimationFrame(animate);
+				};
+
+				animate();
+
+				// Resize handler
+				window.addEventListener('resize', () => {
+					canvas.width = window.innerWidth;
+					canvas.height = window.innerHeight;
+				});
+			};
+
+			// Initialize neural network when page loads
+			window.addEventListener('load', createNeuralNetwork);
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-blue: #00D4FF;
+		--primary-purple: #8B5CF6;
+		--primary-pink: #EC4899;
+		--bg-dark: #0A0A0F;
+		--bg-dark-secondary: #1A1A2E;
+		--text-primary: #FFFFFF;
+		--text-secondary: #B3B3B3;
+		--text-accent: #00D4FF;
+		--border-glow: rgba(0, 212, 255, 0.3);
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		background: var(--bg-dark);
+		color: var(--text-primary);
+		line-height: 1.6;
+		overflow-x: hidden;
+	}
+
+	.fade-in {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease-out;
+	}
+
+	.fade-in.animate-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.glow-button {
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+		border: none;
+		border-radius: 8px;
+		color: white;
+		cursor: pointer;
+		font-weight: 600;
+		padding: 12px 24px;
+		position: relative;
+		text-decoration: none;
+		display: inline-block;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.glow-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+	}
+
+	.glow-button::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		transition: left 0.5s;
+	}
+
+	.glow-button:hover::before {
+		left: 100%;
+	}
+
+	.neural-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		opacity: 0.3;
+	}
+
+	.gradient-text {
+		background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.card-hover {
+		transition: all 0.3s ease;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.card-hover:hover {
+		transform: translateY(-5px);
+		border-color: var(--border-glow);
+		box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+	}
+
+	.sidebar-active {
+		color: var(--text-accent) !important;
+		background: rgba(0, 212, 255, 0.1);
+		border-right: 3px solid var(--primary-blue);
+	}
+
+	@keyframes pulse-glow {
+		0%, 100% {
+			box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+		}
+		50% {
+			box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+		}
+	}
+
+	.pulse-glow {
+		animation: pulse-glow 2s infinite;
+	}
+</style>

@@ -1,0 +1,368 @@
+---
+const structure = {
+	president: { name: "Club President", description: "Overall leadership and strategic direction" },
+	vicePresident: { name: "Vice President", description: "Support president and manage operations" },
+	techLead: { name: "Technical Lead", description: "Oversee technical projects and workshops" },
+	eventCoordinator: { name: "Event Coordinator", description: "Plan and execute club events" },
+	members: { name: "Active Members", description: "Participate in all activities and projects" }
+};
+
+const committees = [
+	{
+		name: "Technical Committee",
+		description: "Focus on AI projects and technical workshops",
+		members: ["Technical Lead", "Senior Members", "Project Teams"]
+	},
+	{
+		name: "Events Committee",
+		description: "Organize hackathons, competitions, and seminars",
+		members: ["Event Coordinator", "Volunteers", "Marketing Team"]
+	},
+	{
+		name: "Learning Committee",
+		description: "Develop curriculum and learning resources",
+		members: ["Education Lead", "Mentors", "Content Creators"]
+	}
+];
+---
+
+<section id="structure" class="structure fade-in">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">Club Structure</h2>
+			<p class="section-subtitle">Organized leadership for maximum impact and learning</p>
+		</div>
+		
+		<div class="org-chart">
+			<div class="hierarchy-level level-1">
+				<div class="role-card president card-hover">
+					<div class="role-icon">👑</div>
+					<h3 class="role-title">{structure.president.name}</h3>
+					<p class="role-description">{structure.president.description}</p>
+					<div class="connection-line"></div>
+				</div>
+			</div>
+			
+			<div class="hierarchy-level level-2">
+				<div class="role-card card-hover">
+					<div class="role-icon">🚀</div>
+					<h3 class="role-title">{structure.vicePresident.name}</h3>
+					<p class="role-description">{structure.vicePresident.description}</p>
+				</div>
+				<div class="role-card card-hover">
+					<div class="role-icon">⚡</div>
+					<h3 class="role-title">{structure.techLead.name}</h3>
+					<p class="role-description">{structure.techLead.description}</p>
+				</div>
+				<div class="role-card card-hover">
+					<div class="role-icon">🎯</div>
+					<h3 class="role-title">{structure.eventCoordinator.name}</h3>
+					<p class="role-description">{structure.eventCoordinator.description}</p>
+				</div>
+			</div>
+			
+			<div class="hierarchy-level level-3">
+				<div class="role-card members card-hover">
+					<div class="role-icon">👥</div>
+					<h3 class="role-title">{structure.members.name}</h3>
+					<p class="role-description">{structure.members.description}</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="committees-section">
+			<h3 class="committees-title">Working Committees</h3>
+			<div class="committees-grid">
+				{committees.map((committee) => (
+					<div class="committee-card card-hover">
+						<div class="committee-header">
+							<h4 class="committee-name">{committee.name}</h4>
+							<div class="committee-icon">🎯</div>
+						</div>
+						<p class="committee-description">{committee.description}</p>
+						<div class="committee-members">
+							<h5>Key Roles:</h5>
+							<ul>
+								{committee.members.map((member) => (
+									<li>{member}</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+		
+		<div class="membership-info">
+			<h3 class="membership-title">Membership Requirements</h3>
+			<div class="requirements-grid">
+				<div class="requirement-item">
+					<div class="req-icon">📚</div>
+					<h4>Academic Standing</h4>
+					<p>Good academic standing with interest in AI/technology</p>
+				</div>
+				<div class="requirement-item">
+					<div class="req-icon">💡</div>
+					<h4>Commitment</h4>
+					<p>Active participation in meetings and projects</p>
+				</div>
+				<div class="requirement-item">
+					<div class="req-icon">🤝</div>
+					<h4>Collaboration</h4>
+					<p>Willingness to work in teams and share knowledge</p>
+				</div>
+				<div class="requirement-item">
+					<div class="req-icon">🎯</div>
+					<h4>Growth Mindset</h4>
+					<p>Eager to learn and adapt to new technologies</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.structure {
+		margin-left: 280px;
+		padding: 5rem 2rem;
+		background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(139, 92, 246, 0.05) 100%);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
+
+	.org-chart {
+		margin-bottom: 5rem;
+	}
+
+	.hierarchy-level {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin-bottom: 3rem;
+		position: relative;
+	}
+
+	.level-1 {
+		justify-content: center;
+	}
+
+	.level-2 {
+		justify-content: space-around;
+	}
+
+	.level-3 {
+		justify-content: center;
+	}
+
+	.role-card {
+		background: rgba(255, 255, 255, 0.03);
+		backdrop-filter: blur(20px);
+		border-radius: 16px;
+		padding: 2rem;
+		text-align: center;
+		min-width: 250px;
+		position: relative;
+	}
+
+	.president {
+		border: 2px solid var(--primary-blue);
+		background: rgba(0, 212, 255, 0.05);
+	}
+
+	.members {
+		background: rgba(139, 92, 246, 0.05);
+		border: 2px solid var(--primary-purple);
+	}
+
+	.role-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+	}
+
+	.role-title {
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
+	}
+
+	.role-description {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
+	.committees-section {
+		margin-bottom: 4rem;
+	}
+
+	.committees-title {
+		font-size: 2.2rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.committees-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	.committee-card {
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(15px);
+		border-radius: 12px;
+		padding: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.committee-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.committee-name {
+		font-size: 1.3rem;
+		font-weight: 600;
+		color: var(--text-accent);
+	}
+
+	.committee-icon {
+		font-size: 1.5rem;
+	}
+
+	.committee-description {
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.committee-members h5 {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
+	}
+
+	.committee-members ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.committee-members li {
+		background: rgba(0, 212, 255, 0.1);
+		padding: 0.4rem 0.8rem;
+		margin: 0.3rem 0;
+		border-radius: 6px;
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	.membership-info {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(139, 92, 246, 0.05) 100%);
+		border-radius: 16px;
+		padding: 3rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.membership-title {
+		font-size: 2rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 2.5rem;
+		color: var(--text-primary);
+	}
+
+	.requirements-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.requirement-item {
+		text-align: center;
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 12px;
+		padding: 2rem;
+		transition: all 0.3s ease;
+	}
+
+	.requirement-item:hover {
+		transform: translateY(-5px);
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.req-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.requirement-item h4 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: var(--text-primary);
+	}
+
+	.requirement-item p {
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	@media (max-width: 768px) {
+		.structure {
+			margin-left: 0;
+			padding: 3rem 1rem;
+		}
+		
+		.hierarchy-level {
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.committees-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.requirements-grid {
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+		}
+		
+		.section-title {
+			font-size: 2.2rem;
+		}
+		
+		.membership-info {
+			padding: 2rem;
+		}
+	}
+</style>
